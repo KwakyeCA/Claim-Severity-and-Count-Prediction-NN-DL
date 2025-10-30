@@ -3,8 +3,10 @@
 ## Project Overview
 
 This project develops predictive models for insurance claim analysis using both traditional Generalized Linear Models (GLMs) and advanced Neural Network architectures. The goal is to accurately predict:
-- **Claim Frequency**: The number of claims expected (count data)
+
 - **Claim Severity**: The cost/amount of individual claims (continuous data)
+
+- **Claim Frequency**: The number of claims expected (count data)
 
 These predictions are critical for actuarial pricing, risk assessment, and portfolio management in property and casualty insurance.
 
@@ -23,10 +25,11 @@ Accurate claim prediction enables insurance companies to:
 - **Source**: [Dataset source/name]
 - **Size**: [Number of records]
 - **Features**: [Key variables used - e.g., policyholder demographics, vehicle characteristics, coverage types, etc.]
-- **Target Variables**: 
-  - Claim Count (Frequency)
-  - Claim Amount (Severity)
+- **Target Variables**:
 
+  - Claim Amount (Severity)
+  - Claim Count (Frequency)
+  
 ## Methodology
 
 ### 1. Generalized Linear Models (GLMs)
@@ -84,17 +87,17 @@ Modern machine learning approach for capturing complex non-linear relationships:
 
 ## Evaluation Metrics
 
-**For Claim Frequency (Count Data):**
-- Mean Absolute Error (MAE)
-- Root Mean Squared Error (RMSE)
-- Poisson Deviance
-- AIC/BIC for model comparison
-
 **For Claim Severity (Amount Data):**
 - Mean Absolute Percentage Error (MAPE)
 - RMSE
 - Gamma Deviance
 - R-squared
+
+**For Claim Frequency (Count Data):**
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
+- Poisson Deviance
+- AIC/BIC for model comparison
 
 ## Results
 
