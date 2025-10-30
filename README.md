@@ -288,17 +288,14 @@ This modeling framework can be applied to:
 ## Author
 
 **Cosmos Ameyaw Kwakye**  
-MSc Candidate, Data Analytics Engineering | BSc Actuarial Science  
-Northeastern University, Vancouver
+MSc Candidate, Data Analytics Engineering | BSc Actuarial Science
+Graduate Student Ambassador - Data Analytics Engineering Program
+College of Engineering|Northeastern University, Vancouver
 
-- LinkedIn: [linkedin.com/in/cosmos-ameyaw-kwakye-neu24dae](https://linkedin.com/in/cosmos-ameyaw-kwakye-neu24dae)
+- LinkedIn: (https://linkedin.com/in/cosmos-ameyaw-kwakye-neu24dae)
 - Email: successkac2020@gmail.com
-- Website: [www.magiccna.com](http://www.magiccna.com)
+- Website: (http://www.magiccna.com)
 
 ## License
 
-[Add your preferred license - e.g., MIT License]
-
----
-
-**Note**: This project was developed as part of graduate coursework in Data Analytics Engineering at Northeastern University (December 2025).
+**Note**: This project was developed as part of graduate coursework (Neural Networks & Deep Learning) in Data Analytics Engineering at Northeastern University (December 2025).
