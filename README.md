@@ -1,1 +1,1 @@
-# Claim-Severity-and-Count-Prediction-NN-DL
+# Claim-Severity-and-Frequency-Prediction-NN-DL
