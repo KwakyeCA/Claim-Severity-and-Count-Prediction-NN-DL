@@ -281,9 +281,12 @@ This modeling framework can be applied to:
 
 ## References
 
-- [Add relevant actuarial/ML papers]
-- [Insurance pricing methodologies]
-- [Neural network architectures for regression]
+1. McCullagh, P., & Nelder, J. A. (1989). Generalized Linear Models (2nd ed.). Chapman & Hall.
+2. Frees, E. W. (2010). Regression Modeling with Actuarial and Financial Applications. Cambridge University Press.
+3. Kuo, C. C., & Lu, C. J. (2017). Improving insurance claim prediction using machine learning techniques. Journal of Risk and Insurance, 84(3), 987–1012.
+4. Henckaerts, R., Antonio, K., Clijsters, M., & Verbelen, R. (2021). Boosting insights in insurance tariff plans with tree-based machine learning methods. North American Actuarial Journal, 25(2), 226–247.
+5. Richman, R., & Wüthrich, M. V. (2021). Deep Learning for Actuaries. SSRN.
+6. Molnar, C. (2020). Interpretable Machine Learning: A Guide for Making Black Box Models Explainable.
 
 ## Author
 
