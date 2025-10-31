@@ -202,7 +202,7 @@ insurance-claim-severity-prediction/
 ```bash
 # Clone the repository
 git clone (https://github.com/KwakyeCA)
-cd (Claim-Severity-and-Count-Prediction-NN-DL)
+cd Claim-Severity-and-Count-Prediction-NN-DL
 
 # Create virtual environment
 python -m venv venv
