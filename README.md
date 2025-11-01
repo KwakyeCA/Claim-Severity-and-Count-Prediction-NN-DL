@@ -189,11 +189,9 @@ insurance-claim-severity-prediction/
 │   └── processed/                   # Preprocessed data with log transformation
 │
 ├── notebooks/
-│   ├── 01_EDA.ipynb                # Exploratory Data Analysis (Completed Oct 2025)
-│   ├── 02_Preprocessing.ipynb      # Data cleaning and transformation
-│   ├── 03_XGBoost_Baseline.ipynb  # Traditional ML baseline model
-│   └── 04_NeurFS_Model.ipynb      # Neural network with embeddings
-│
+│   ├── 01_Project_EDA with Modelling.ipynb     # EDA, Preprocessing & Modelling (Completed as at Oct 2025)
+
+
 ├── src/
 │   ├── preprocessing.py            # Data preprocessing functions
 │   ├── embeddings.py               # Embedding layer implementations
