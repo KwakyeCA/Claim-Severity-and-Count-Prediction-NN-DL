@@ -104,7 +104,7 @@ Rather than one-hot encoding (which would create 326+ sparse columns), NeurFS us
 - **Feature correlation analysis**: Identified 15 multicollinear pairs for potential dimensionality reduction
 
 ### Model Development
-- **Baseline Tweedie and XGBoost**: Establishes performance benchmark with traditional and modern gradient boosting
+- **Tweedie and XGBoost Baselines**: Establishes performance benchmark with traditional and modern gradient boosting
 - **NeurFS Implementation**: Custom neural architecture with embedding layers for categorical features
 - **Hyperparameter optimization**: Systematic tuning for optimal performance
 
