@@ -40,9 +40,22 @@ Accurate claim prediction enables insurance companies to:
 
 ## Methodology
 
-### 1. Baseline Model: XGBoost
+## Two Baseline Models
 
-Traditional gradient boosting approach for establishing performance benchmarks:
+### 1. Traditional Actuarial Baseline: TWEEDIE GLM 
+
+Tweedie GLM (power=1.5) generalizes Gamma, providing robust handling of extreme right-skewness (original skewness=3.79) with superior numerical convergence
+
+**Why Tweedie GLM:**
+- Works on original scale
+- Handles high-cardinality categorical features efficiently
+- Robust to outliers and skewed distributions
+- Provides feature importance insights
+- Industry-proven (Actuarial Standard) 
+
+- ### 2. Modern ML baseline: XGBoost
+
+Modern gradient boosting approach for establishing performance benchmarks:
 
 **Why XGBoost:**
 - Handles high-cardinality categorical features efficiently
