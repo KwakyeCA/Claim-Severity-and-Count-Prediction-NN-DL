@@ -40,9 +40,9 @@ Accurate claim prediction enables insurance companies to:
 
 ## Methodology
 
-## Two Baseline Models
+## 1.  Two Baseline Models
 
-### 1. Traditional Actuarial Baseline: TWEEDIE GLM 
+### 1A. Traditional Actuarial Baseline: TWEEDIE GLM 
 
 Tweedie GLM (power=1.5) generalizes Gamma, providing robust handling of extreme right-skewness (original skewness=3.79) with superior numerical convergence
 
@@ -53,7 +53,7 @@ Tweedie GLM (power=1.5) generalizes Gamma, providing robust handling of extreme 
 - Provides feature importance insights
 - Industry-proven (Actuarial Standard) 
 
-- ### 2. Modern ML baseline: XGBoost
+### 1B. Modern ML baseline: XGBoost
 
 Modern gradient boosting approach for establishing performance benchmarks:
 
@@ -150,16 +150,17 @@ Given the extreme skewness (3.79) and presence of outlier claims ($121K max vs $
 | **Weak linear correlations** (max 0.14) | Traditional linear models perform poorly | Deep learning for non-linear pattern recognition |
 | **No frequency data** (0% zero losses) | Cannot model traditional claim frequency | Focus on severity prediction; secondary binary classification |
 
-## Results
-
-[Final model results will be updated upon project completion in December 2025]
+## Preliminary Results
 
 ### Model Performance Comparison
 
 | Model Type | MAE (Log Scale) | RMSE | R² | Training Time |
 |------------|-----------------|------|-----|---------------|
+|  Tweedie Baseline | [pending] | [pending] | [pending] | [pending] |
 | XGBoost Baseline | [pending] | [pending] | [pending] | [pending] |
 | NeurFS (Neural Network) | [pending] | [pending] | [pending] | [pending] |
+
+[Final model results will be updated upon project completion in December 2025]
 
 ### EDA Key Findings
 
@@ -308,9 +309,9 @@ MSc Candidate, Data Analytics Engineering | BSc Actuarial Science
 Graduate Student Ambassador - Data Analytics Engineering Program
 College of Engineering|Northeastern University, Vancouver
 
-- LinkedIn: (https://linkedin.com/in/cosmos-ameyaw-kwakye-neu24dae)
+- LinkedIn: https://linkedin.com/in/cosmos-ameyaw-kwakye-neu24dae
 - Email: successkac2020@gmail.com
-- Website: (http://www.magiccna.com)
+- Website: http://www.magiccna.com
 
 ## License
 
