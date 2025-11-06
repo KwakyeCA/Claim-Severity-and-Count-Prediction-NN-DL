@@ -293,22 +293,24 @@ This modeling framework can be applied to:
 
 ## References
 1. Lim, D.-Y. (2024). A Neural Network-Based Frequency and Severity Model for Insurance Claims. arXiv preprint arXiv:2106.10770v2.
-2. McCullagh, P., & Nelder, J. A. (1989). Generalized Linear Models (2nd ed.). Chapman & Hall.
-3. Frees, E. W. (2010). Regression Modeling with Actuarial and Financial Applications. Cambridge University Press.
-4. Kuo, C. C., & Lu, C. J. (2017). Improving insurance claim prediction using machine learning techniques. Journal of Risk and Insurance, 84(3), 987–1012.
-5. Henckaerts, R., Antonio, K., Clijsters, M., & Verbelen, R. (2021). Boosting insights in insurance tariff plans with tree-based machine learning methods. North American Actuarial Journal, 25(2), 226–247.
-6. Richman, R., & Wüthrich, M. V. (2021). Deep Learning for Actuaries. SSRN.
-7. Molnar, C. (2020). Interpretable Machine Learning: A Guide for Making Black Box Models Explainable.
+2. Garrido, J., Genest, C., & Schulz, J. (2016). Generalized linear models for dependent frequency and severity of insurance claims. Insurance: Mathematics and Economics, 70, 205–215.
+3. McCullagh, P., & Nelder, J. A. (1989). Generalized Linear Models (2nd ed.). Chapman & Hall.
+4. Frees, E. W. (2010). Regression Modeling with Actuarial and Financial Applications. Cambridge University Press.
+5. Kuo, C. C., & Lu, C. J. (2017). Improving insurance claim prediction using machine learning techniques. Journal of Risk and Insurance, 84(3), 987–1012.
+6. Henckaerts, R., Antonio, K., Clijsters, M., & Verbelen, R. (2021). Boosting insights in insurance tariff plans with tree-based machine learning methods. North American Actuarial Journal, 25(2), 226–247.
+7. Richman, R., & Wüthrich, M. V. (2021). Deep Learning for Actuaries. SSRN.
+8. Molnar, C. (2020). Interpretable Machine Learning: A Guide for Making Black Box Models Explainable.
 
 ## Author
 
 **Cosmos Ameyaw Kwakye, BSc, MIMA**  
-MSc Candidate, Data Analytics Engineering | BSc Actuarial Science
+MSc Candidate, Data Analytics Engineering | BSc Actuarial Science |
 Graduate Student Ambassador - Data Analytics Engineering Program
-College of Engineering|Northeastern University, Vancouver
+College of Engineering|Northeastern University, Vancouver, Canada
+Member, Institute of Mathematics and Its Applications 
 
 - LinkedIn: https://linkedin.com/in/cosmos-ameyaw-kwakye-neu24dae
-- Email: successkac2020@gmail.com
+- Email: kwakye.c@northeastern.edu
 - Website: http://www.magiccna.com
 
 ## License
