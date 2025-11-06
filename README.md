@@ -292,17 +292,17 @@ This modeling framework can be applied to:
 - **Fraud Detection**: Identifying anomalous claim patterns
 
 ## References
-
-1. McCullagh, P., & Nelder, J. A. (1989). Generalized Linear Models (2nd ed.). Chapman & Hall.
-2. Frees, E. W. (2010). Regression Modeling with Actuarial and Financial Applications. Cambridge University Press.
-3. Kuo, C. C., & Lu, C. J. (2017). Improving insurance claim prediction using machine learning techniques. Journal of Risk and Insurance, 84(3), 987–1012.
-4. Henckaerts, R., Antonio, K., Clijsters, M., & Verbelen, R. (2021). Boosting insights in insurance tariff plans with tree-based machine learning methods. North American Actuarial Journal, 25(2), 226–247.
-5. Richman, R., & Wüthrich, M. V. (2021). Deep Learning for Actuaries. SSRN.
-6. Molnar, C. (2020). Interpretable Machine Learning: A Guide for Making Black Box Models Explainable.
+1. Lim, D.-Y. (2024). A Neural Network-Based Frequency and Severity Model for Insurance Claims. arXiv preprint arXiv:2106.10770v2.
+2. McCullagh, P., & Nelder, J. A. (1989). Generalized Linear Models (2nd ed.). Chapman & Hall.
+3. Frees, E. W. (2010). Regression Modeling with Actuarial and Financial Applications. Cambridge University Press.
+4. Kuo, C. C., & Lu, C. J. (2017). Improving insurance claim prediction using machine learning techniques. Journal of Risk and Insurance, 84(3), 987–1012.
+5. Henckaerts, R., Antonio, K., Clijsters, M., & Verbelen, R. (2021). Boosting insights in insurance tariff plans with tree-based machine learning methods. North American Actuarial Journal, 25(2), 226–247.
+6. Richman, R., & Wüthrich, M. V. (2021). Deep Learning for Actuaries. SSRN.
+7. Molnar, C. (2020). Interpretable Machine Learning: A Guide for Making Black Box Models Explainable.
 
 ## Author
 
-**Cosmos Ameyaw Kwakye**  
+**Cosmos Ameyaw Kwakye, BSc, MIMA**  
 MSc Candidate, Data Analytics Engineering | BSc Actuarial Science
 Graduate Student Ambassador - Data Analytics Engineering Program
 College of Engineering|Northeastern University, Vancouver
