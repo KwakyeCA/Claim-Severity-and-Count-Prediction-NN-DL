@@ -304,9 +304,9 @@ This modeling framework can be applied to:
 ## Author
 
 **Cosmos Ameyaw Kwakye, BSc, MIMA**  
-BSc Actuarial Science | MSc Candidate, Data Analytics Engineering  | Member, Institute of Mathematics and Its Applications 
-Graduate Student Ambassador - Data Analytics Engineering Program
-College of Engineering|Northeastern University, Vancouver, Canada 
+BSc Actuarial Science | MSc Candidate, Data Analytics Engineering  | Member, Institute of Mathematics and Its Applications |
+Graduate Student Ambassador - Data Analytics Engineering Program |
+College of Engineering | Northeastern University, Vancouver, Canada 
 
 
 - LinkedIn: https://linkedin.com/in/cosmos-ameyaw-kwakye-neu24dae
