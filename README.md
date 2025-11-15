@@ -68,7 +68,7 @@ Modern gradient boosting approach for establishing performance benchmarks:
 - Native categorical feature handling
 - Hyperparameter tuning via cross-validation
 
-### 2. Neural Feature Synthesis (NeurFS)
+### 2. Neural Frequency-Severity (NeurFS)
 
 Advanced neural network approach specifically designed for high-dimensional categorical data:
 
