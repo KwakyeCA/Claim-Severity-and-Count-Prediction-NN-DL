@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project develops predictive models for insurance claim severity analysis using both traditional machine learning approaches and advanced Neural Network architectures. The primary objective is to accurately predict **claim severity** - the cost/amount of individual insurance claims given that a claim has occurred.
+This project develops predictive models for insurance claim severity analysis using Generalized Linear Models (GLMs), traditional machine learning approaches and advanced Neural Network architectures. The primary objective is to accurately predict **claim severity** - the cost/amount of individual insurance claims given that a claim has occurred.
 
 **Key Focus**: Severity-only modeling using the Allstate Insurance dataset, which contains exclusively filed claims (no non-claimant records). This is critical for:
 - Accurate reserve estimation
