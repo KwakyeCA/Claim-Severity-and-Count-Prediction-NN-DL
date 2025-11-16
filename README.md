@@ -686,7 +686,7 @@ This project is developed as part of graduate coursework at Northeastern Univers
 
 ## Acknowledgments
 
-- **Professor**: Dr. Chinthaka Gedara Pathum Dinesh, Neural Networks & Deep Learning (IE7615)
+- **Professor**: Dr.Herath Gedara, Chinthaka Pathum Dinesh, Neural Networks & Deep Learning (IE7615)
 - **Institution**: Northeastern University, College of Engineering, Vancouver Campus
 - **Dataset**: Allstate Insurance Company (Kaggle competition dataset)
 - **Key Reference**: Lim, D.-Y. (2024). Neural Frequency-Severity Model (NeurFS framework)
