@@ -1,3 +1,18 @@
+![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.13+-orange.svg)
+![License](https://img.shields.io/badge/license-Academic-green.svg)
+![Status](https://img.shields.io/badge/status-Phase%203%20Complete-success.svg)
+
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Key Results](#key-results-summary)
+- [Methodology](#methodology)
+- [Installation](#installation-and-setup)
+- [Usage](#usage)
+- [Results](#current-project-status)
+- [Contact](#contact)
+```
+
 # Insurance Claim Severity Prediction using Neural Networks
 
 ## Project Overview
