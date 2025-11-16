@@ -731,4 +731,4 @@ College of Engineering | Northeastern University, Vancouver, Canada
 
 ---
 
-⭐ **If you find this project helpful, please consider giving it a star!**v
+⭐ **If you find this project helpful, please consider giving it a star!**
