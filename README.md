@@ -230,50 +230,46 @@ Total Parameters: ~150,000 trainable weights
 
 ## Project Structure
 
-```
 ClaimSeverity-and-Count-Prediction-NN-DL/
 │
+├── README.md                          # Project documentation
+├── requirements.txt                   # Python dependencies
+│
 ├── data/
-│   ├── train.csv                    # Training data (112,991 records)
-│   ├── test.csv                     # Test data (125,546 records)
-│   └── processed/                   # Preprocessed splits
-│       ├── train_processed.csv
-│       ├── val_processed.csv
-│       └── test_processed.csv
+│   └── train.csv                      # Allstate dataset (188,318 claims)
+│                                      # Split: 60% train / 20% val / 20% test
 │
 ├── notebooks/
-│   ├── 01_EDA.ipynb                # Phase 1: Exploratory analysis ✅
-│   ├── 02_Preprocessing.ipynb       # Data preprocessing ✅
-│   ├── 03_Baseline_Models.ipynb     # GLM & XGBoost ✅
-│   └── 04_Neural_Network.ipynb      # NeurFS implementation ✅
+│   ├── 01_EDA.ipynb                  # Phase 1: Exploratory Data Analysis
+│   ├── 02_Preprocessing.ipynb         # Data preprocessing & transformation
+│   ├── 03_Baseline_Models.ipynb       # Phase 2: Tweedie GLM & XGBoost
+│   ├── 04_Neural_Network.ipynb        # Phase 3: Neural network with embeddings
+│   └── 05_SHAP_Analysis.ipynb        # Phase 4: Interpretability (upcoming)
 │
-├── src/
-│   ├── preprocessing.py            # Data preprocessing functions
-│   ├── embeddings.py               # Embedding layer utilities
-│   ├── neurfs_model.py             # Neural network architecture
-│   └── evaluation.py               # Metrics and evaluation
+├── src/                               # Source code modules
+│   ├── init.py
+│   ├── preprocessing.py               # Data preprocessing utilities
+│   ├── embeddings.py                  # Embedding dimension calculations
+│   ├── neurfs_model.py               # Neural network architecture
+│   └── evaluation.py                  # Metrics and evaluation functions
 │
-├── models/
-│   ├── tweedie_glm.pkl             # Saved Tweedie model
-│   ├── xgboost_model.pkl           # Saved XGBoost model
-│   └── neural_network/             # Saved NN checkpoints
-│       ├── model_weights.h5
-│       └── embedding_layers/
+├── models/                            # Saved trained models
+│   ├── tweedie_glm.pkl               # Tweedie GLM baseline
+│   ├── xgboost_model.pkl             # XGBoost baseline
+│   └── neural_network.h5             # Neural network with embeddings
 │
-├── reports/
-│   ├── Phase1_EDA_Report.pdf       # Oct 17 progress report
-│   ├── Phase2_Baselines_Report.pdf # Oct 31 progress report
-│   ├── Phase3_NeuralNet_Report.pdf # Nov 14 progress report
-│   └── figures/                     # All visualizations
-│       ├── margin_tolerance_analysis.png
-│       ├── target_distribution.png
-│       ├── cardinality_chart.png
-│       ├── model_performance.png
-│       └── training_curves.png
+└── reports/
+├── progress_reports/              # Bi-weekly progress reports
+│   ├── Phase1_EDA_Oct17.pdf
+│   ├── Phase2_Baselines_Oct31.pdf
+│   └── Phase3_NeuralNet_Nov14.pdf
 │
-├── requirements.txt                # Project dependencies
-└── README.md                       # This file
-```
+└── figures/                       # Visualizations
+├── margin_tolerance_analysis.png
+├── target_distribution.png
+├── cardinality_chart.png
+├── model_performance.png
+└── training_curves.png
 
 ## Installation and Setup
 
