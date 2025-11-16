@@ -661,23 +661,11 @@ This modeling framework enables:
 ### Potential Extensions (Beyond Course Scope)
 *These would require additional work after December 2025:*
 
-**If continuing as personal/research project:**
-- [ ] Ensemble modeling: Combine XGBoost + Neural Network predictions
-- [ ] Hyperparameter optimization: Systematic grid search for architecture
-- [ ] Cross-validation: K-fold CV for robust estimates
-- [ ] Attention mechanisms: Add attention layers for feature identification
-
-**If developing for production:**
+**Developing for production:**
 - [ ] REST API deployment: Real-time claim prediction service
 - [ ] Model monitoring: Track performance drift over time
 - [ ] A/B testing framework: Compare model versions
 - [ ] External data integration: Weather, economic indicators
-
-**If pursuing research publication:**
-- [ ] Literature review expansion: Comprehensive survey of methods
-- [ ] Benchmark comparisons: Test on additional insurance datasets
-- [ ] Ablation studies: Analyze contribution of each component
-- [ ] Statistical significance testing: Formal hypothesis tests
 
 ## Contributing
 
