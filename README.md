@@ -15,7 +15,7 @@
 ---
 
 # Insurance Claim Severity Prediction Using Neural Networks
-## A Margin Tolerance Evaluation Developed
+## A Margin Tolerance Evaluation Framework Developed
 
 ## Project Overview
 
@@ -436,21 +436,25 @@ This modeling framework enables:
 
 ## Key Visualizations
 
-### 1. Model Performance Comparison
-- Side-by-side MAE comparison across all 4 models
-- Ensemble NN achieves best performance
+### 1. Target Distribution
+![Target Distribution](reports/figures/target_distribution.png)
+*Before/after log transformation showing skewness reduction from 3.79 to 0.2*
 
-### 2. Margin Tolerance Analysis
-- 4-panel visualization at business-critical thresholds
-- Demonstrates practical accuracy improvements
+### 2. Categorical Feature Cardinality
+![Cardinality Chart](reports/figures/cardinality_chart.png)
+*Distribution of unique values across 116 categorical features*
 
-### 3. SHAP Summary Plot
-- Global feature importance rankings
-- Validates embedding effectiveness for high-cardinality features
+### 3. Model Performance Comparison
+![Model Performance](reports/figures/model_performance.png)
+*Side-by-side MAE and R² comparison - Ensemble NN achieves best performance*
 
-### 4. Training Curves
-- Loss convergence across epochs
-- Train-validation gap confirms no overfitting
+### 4. Margin Tolerance Analysis
+![Margin Tolerance Analysis](reports/figures/margin_tolerance_analysis.png)
+*Prediction accuracy at business-critical thresholds ($500, $1K, $2K, $5K)*
+
+### 5. Training Curves
+![Training Curves](reports/figures/training_curves.png)
+*Loss convergence across epochs - Train-validation gap confirms no overfitting*
 
 ## License
 
@@ -502,4 +506,4 @@ College of Engineering | Northeastern University, Vancouver, Canada
 
 ---
 
-**If you find this project helpful, please consider giving it a star!**
+ **If you find this project helpful, please consider giving it a star!**
