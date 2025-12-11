@@ -456,14 +456,6 @@ This modeling framework enables:
 ![Training Curves](reports/figures/training_curves.png)
 *Loss convergence across epochs - Train-validation gap confirms no overfitting*
 
-### 6. Distribution Analysis
-![Distribution](reports/figures/Distribution.png)
-*Feature distribution analysis across the dataset*
-
-### 7. Margin of Error Tolerance (Detailed)
-![Margin of Error Tolerance Analysis](reports/figures/Margin%20of%20Error%20Tolerance%20Analysis.png)
-*Comprehensive margin of error tolerance breakdown*
-
 ## License
 
 This project is developed as part of graduate coursework at Northeastern University (Fall 2025). 
