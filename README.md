@@ -26,7 +26,7 @@ This project develops predictive models for insurance claim severity analysis us
 - Large claim identification and prioritization
 - Pricing optimization for renewal business
 
-**Project Status**: ✅ **Phase 3 Complete** (Neural Network Implementation) - November 2025
+**Project Status**:  **Phase 3 Complete** (Neural Network Implementation) - November 2025
 
 ## Business Context
 
@@ -41,7 +41,7 @@ Accurate claim prediction enables insurance companies to:
 
 **Source**: Allstate Insurance Claims Dataset  
 **Size**: 188,318 claim records  
-**Features**: 132 total features
+**Features**: 130 total features
 - 116 categorical features (87.88%) - including policyholder characteristics, coverage details, and risk factors
 - 14 continuous features (10.61%) - numerical risk indicators and policy attributes
 - 1 ID column
@@ -55,13 +55,13 @@ Accurate claim prediction enables insurance companies to:
 - **Note**: Dataset contains only claims that occurred (no zero losses), making this a pure severity prediction problem
 
 **Data Quality**: 
-- ✅ 0 missing values
-- ✅ 0 duplicates
-- ✅ 100% clean dataset
+-  0 missing values
+-  0 duplicates
+-  100% clean dataset
 
 ## Key Results Summary
 
-### 🏆 Model Performance Comparison
+###  Model Performance Comparison
 
 | Model | Test MAE ($) | Test R² | Key Advantage |
 |-------|-------------|---------|---------------|
@@ -70,12 +70,12 @@ Accurate claim prediction enables insurance companies to:
 | Tweedie GLM | $1,321.84 | 0.4285 | Actuarial standard baseline |
 
 **Key Findings:**
-- ✅ Neural Network achieves **competitive performance** (within 0.4% of XGBoost)
-- ✅ **54% dimensionality reduction**: 1,176 sparse features → 543 dense embeddings
-- ✅ **13% improvement** over traditional GLM baseline
-- ✅ **64% practical accuracy** at $1,000 error margin (vs. GLM's 55%)
+-  Neural Network achieves **competitive performance** (within 0.4% of XGBoost)
+-  **54% dimensionality reduction**: 1,176 sparse features → 543 dense embeddings
+-  **13% improvement** over traditional GLM baseline
+-  **64% practical accuracy** at $1,000 error margin (vs. GLM's 55%)
 
-### 💡 Novel Contribution: Margin of Error Tolerance Analysis
+###  Novel Contribution: Margin of Error Tolerance Analysis
 
 A new evaluation framework assessing **practical business accuracy**:
 
@@ -90,14 +90,14 @@ A new evaluation framework assessing **practical business accuracy**:
 
 ## Methodology
 
-### Phase 1: Exploratory Data Analysis (October 2025) ✅
+### Phase 1: Exploratory Data Analysis (October 2025) 
 
 **Completed Analyses:**
-- ✅ Distribution analysis revealing extreme right skew (3.79)
-- ✅ Feature correlation study (max correlation = 0.14, indicating weak linear relationships)
-- ✅ High-cardinality categorical identification (cat116 with 326 unique values)
-- ✅ Missing value and duplicate analysis (0 issues found)
-- ✅ Statistical summary and outlier detection
+- Distribution analysis revealing extreme right skew (3.79)
+- Feature correlation study (max correlation = 0.14, indicating weak linear relationships)
+- High-cardinality categorical identification (cat116 with 326 unique values)
+- Missing value and duplicate analysis (0 issues found)
+- Statistical summary and outlier detection
 
 **Key Challenges Identified:**
 1. Extreme skewness (3.79) requiring transformation
@@ -105,7 +105,7 @@ A new evaluation framework assessing **practical business accuracy**:
 3. Weak linear correlations justifying neural network approach
 4. Multicollinearity (15 correlated pairs r > 0.9)
 
-### Phase 2: Baseline Models (October 2025) ✅
+### Phase 2: Baseline Models (October 2025) 
 
 #### 2A. Traditional Actuarial Baseline: Tweedie GLM
 
@@ -146,7 +146,7 @@ A new evaluation framework assessing **practical business accuracy**:
 - Training time: ~2 minutes
 - Feature importance: High-cardinality categoricals in top 10
 
-### Phase 3: Neural Network with Embeddings (November 2025) ✅
+### Phase 3: Neural Network with Embeddings (November 2025) 
 
 #### Neural Frequency-Severity (NeurFS) Framework Adaptation
 
@@ -163,7 +163,7 @@ A new evaluation framework assessing **practical business accuracy**:
 
 **Network Structure:**
 ```
-Input Layer: 557 features (543 embeddings + 14 continuous)
+Input Layer: 116 features (543 total embeddings + 14 continuous)
     ↓
 Hidden Layer 1: 128 neurons (ReLU, BatchNorm, Dropout 0.3)
     ↓
@@ -189,11 +189,11 @@ Total Parameters: ~150,000 trainable weights
 - Validation-test difference: $0.53 (0.05%) - **excellent generalization**
 
 **Key Advantages over XGBoost:**
-1. ✅ **54% dimensionality reduction** (1,176→543 features)
-2. ✅ **Learned embeddings** capture semantic relationships
-3. ✅ **GPU scalability** for larger datasets
-4. ✅ **Interpretability** via SHAP (Phase 4)
-5. ✅ **Multi-task potential** for future extensions
+1.  **54% dimensionality reduction** (1,176→543 features)
+2.  **Learned embeddings** capture semantic relationships
+3.  **GPU scalability** for larger datasets
+4.  **Interpretability** via SHAP (Phase 4)
+5.  **Multi-task potential** for future extensions
 
 ## Data Preprocessing Pipeline
 
@@ -542,47 +542,47 @@ MAE = (1/n) * Σ|y_true - y_pred|
 
 ## Current Project Status
 
-### ✅ Completed Phases
+### Completed Phases
 
 **Phase 1: EDA** (October 17, 2025)
-- ✅ Comprehensive data exploration
-- ✅ Challenge identification
-- ✅ Statistical analysis
-- ✅ Visualization of key patterns
+- Comprehensive data exploration
+- Challenge identification
+- Statistical analysis
+- Visualization of key patterns
 
 **Phase 2: Baseline Models** (October 31, 2025)
-- ✅ Data preprocessing pipeline
-- ✅ Tweedie GLM implementation
-- ✅ XGBoost baseline training
-- ✅ Performance benchmarking
+- Data preprocessing pipeline
+- Tweedie GLM implementation
+- XGBoost baseline training
+- Performance benchmarking
 
 **Phase 3: Neural Network** (November 14, 2025)
-- ✅ NeurFS architecture implementation
-- ✅ Embedding layer design (54% reduction)
-- ✅ Model training and optimization
-- ✅ Competitive performance achieved (0.4% from XGBoost)
-- ✅ Margin tolerance framework developed
+- NeurFS architecture implementation
+- Embedding layer design (54% reduction)
+- Model training and optimization
+- Competitive performance achieved (0.4% from XGBoost)
+- Margin tolerance framework developed
 
-### 🔄 In Progress
+###  In Progress
 
 **Phase 4: SHAP Interpretability Analysis** (November 18-24, 2025)
-- 🔄 Global feature importance via SHAP
-- 🔄 Embedding visualization (t-SNE/UMAP)
-- 🔄 Individual prediction explanations
-- 🔄 Business insights extraction
+- Global feature importance via SHAP
+- Embedding visualization (t-SNE/UMAP)
+- Individual prediction explanations
+- Business insights extraction
 
-### 📅 Upcoming Phases
+### Upcoming Phases
 
 **Phase 5: Final Report** (November 25 - December 4, 2025)
-- 📅 Comprehensive 15-20 page report
-- 📅 Literature review integration
-- 📅 Full methodology documentation
-- 📅 Results discussion and analysis
+- Comprehensive 15-20 page report
+- Literature review integration
+- Full methodology documentation
+- Results discussion and analysis
 
 **Phase 6: Final Presentation** (December 4, 2025)
-- 📅 15-20 minute presentation
-- 📅 8-10 slide deck
-- 📅 Key findings and business value summary
+- 15-20 minute presentation
+- 8-10 slide deck
+- Key findings and business value summary
 
 ## Key Visualizations
 
@@ -701,13 +701,8 @@ This project is developed as part of graduate coursework at Northeastern Univers
 
 4. Frees, E. W. (2010). *Regression Modeling with Actuarial and Financial Applications*. Cambridge University Press.
 
-5. Kuo, C. C., & Lu, C. J. (2017). Improving insurance claim prediction using machine learning techniques. *Journal of Risk and Insurance, 84*(3), 987–1012.
-
-6. Henckaerts, R., Antonio, K., Clijsters, M., & Verbelen, R. (2021). Boosting insights in insurance tariff plans with tree-based machine learning methods. *North American Actuarial Journal, 25*(2), 226–247.
-
-7. Richman, R., & Wüthrich, M. V. (2021). *Deep Learning for Actuaries*. SSRN.
-
-8. Molnar, C. (2020). *Interpretable Machine Learning: A Guide for Making Black Box Models Explainable*.
+5. Henckaerts, R., Antonio, K., Clijsters, M., & Verbelen, R. (2021). Boosting insights in insurance tariff plans with tree-based machine learning methods. *North American Actuarial Journal, 25*(2), 226–247.
+6. Molnar, C. (2020). *Interpretable Machine Learning: A Guide for Making Black Box Models Explainable*.
 
 ## Contact
 
@@ -717,18 +712,18 @@ Full Member (MIMA), Institute of Mathematics and Its Applications (IMA), UK
 Graduate Student Ambassador - Data Analytics Engineering Program  
 College of Engineering | Northeastern University, Vancouver, Canada
 
-- 📧 Email: kwakye.c@northeastern.edu
-- 💼 LinkedIn: [linkedin.com/in/cosmos-ameyaw-kwakye-neu24dae](https://linkedin.com/in/cosmos-ameyaw-kwakye-neu24dae)
-- 🌐 Website: [www.magiccna.com](http://www.magiccna.com)
-- 📊 GitHub: [github.com/KwakyeCA](https://github.com/KwakyeCA)
+- Email: kwakye.c@northeastern.edu
+- LinkedIn: [linkedin.com/in/cosmos-ameyaw-kwakye-neu24dae](https://linkedin.com/in/cosmos-ameyaw-kwakye-neu24dae)
+- Website: [www.magiccna.com](http://www.magiccna.com)
+- GitHub: [github.com/KwakyeCA](https://github.com/KwakyeCA)
 
 ---
 
 **Project Timeline**: September 2025 - December 2025  
 **Last Updated**: November 14, 2025  
-**Current Status**: Phase 3 Complete ✅ | Phase 4 In Progress 🔄  
+**Current Status**: Phase 3 Complete  | Phase 4 In Progress   
 **Expected Completion**: December 4, 2025
 
 ---
 
-⭐ **If you find this project helpful, please consider giving it a star!**
+**If you find this project helpful, please consider giving it a star!**
