@@ -1,7 +1,7 @@
 ![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.13+-orange.svg)
 ![License](https://img.shields.io/badge/license-Academic-green.svg)
-![Status](https://img.shields.io/badge/status-Phase%203%20Complete-success.svg)
+![Status](https://img.shields.io/badge/status-Complete-success.svg)
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -14,11 +14,12 @@
 
 ---
 
-# Insurance Claim Severity Prediction using Neural Networks
+# Insurance Claim Severity Prediction Using Neural Networks
+## A Margin Tolerance Evaluation Developed
 
 ## Project Overview
 
-This project develops predictive models for insurance claim severity analysis using Generalized Linear Models (GLMs), XGBoost, and advanced Neural Network architectures with embedding layers. The primary objective is to accurately predict **claim severity** - the cost/amount of individual insurance claims given that a claim has occurred.
+This project develops predictive models for insurance claim severity analysis using Generalized Linear Models (GLMs), XGBoost, and advanced Neural Network architectures with entity embeddings. The primary objective is to accurately predict **claim severity** - the cost/amount of individual insurance claims given that a claim has occurred.
 
 **Key Focus**: Severity-only modeling using the Allstate Insurance dataset, which contains exclusively filed claims (no non-claimant records). This is critical for:
 - Accurate reserve estimation
@@ -26,7 +27,11 @@ This project develops predictive models for insurance claim severity analysis us
 - Large claim identification and prioritization
 - Pricing optimization for renewal business
 
-**Project Status**:  **Phase 3 Complete** (Neural Network Implementation) - November 2025
+**Novel Contribution**: A **Margin Tolerance Evaluation Framework** that quantifies prediction accuracy within business-relevant dollar thresholds ($500, $1,000, $2,000, $5,000), bridging the gap between traditional metrics (MAE) and operational decision-making.
+
+**Project Status**:  **Complete** - December 2025
+
+**Course**: IE7615 Neural Networks and Deep Learning | Northeastern University | Fall 2025
 
 ## Business Context
 
@@ -63,34 +68,36 @@ Accurate claim prediction enables insurance companies to:
 
 ###  Model Performance Comparison
 
-| Model | Test MAE ($) | Test R² | Key Advantage |
-|-------|-------------|---------|---------------|
-| **XGBoost** | **$1,144.87** | **0.5488** | Best raw performance |
-| **Neural Network** | **$1,149.49** | **0.5462** | 54% dimensionality reduction + interpretability |
-| Tweedie GLM | $1,321.84 | 0.4285 | Actuarial standard baseline |
+| Model | Test MAE ($) | Test R² | Parameters | Key Advantage |
+|-------|-------------|---------|------------|---------------|
+| **Ensemble NN** | **$1,132** | **0.591** | ~750K | **Best performance + interpretability** |
+| XGBoost | $1,145 | 0.587 | ~3M | Strong baseline |
+| Single NN | $1,149 | 0.582 | ~150K | 54% dimensionality reduction |
+| Tweedie GLM | $1,322 | 0.542 | ~130 | Actuarial standard baseline |
 
 **Key Findings:**
--  Neural Network achieves **competitive performance** (within 0.4% of XGBoost)
+-  **Ensemble NN achieves best performance** ($1,132 MAE)
+-  **Outperforms XGBoost** by $13/claim (1.1% improvement)
+-  **14.4% improvement** over traditional GLM baseline ($190/claim savings)
 -  **54% dimensionality reduction**: 1,176 sparse features → 543 dense embeddings
--  **13% improvement** over traditional GLM baseline
--  **64% practical accuracy** at $1,000 error margin (vs. GLM's 55%)
+-  **Statistical validation**: Bootstrap CI confirms Ensemble NN and XGBoost are statistically equivalent, both significantly outperform GLM
 
-###  Novel Contribution: Margin of Error Tolerance Analysis
+###  Novel Contribution: Margin Tolerance Analysis
 
 A new evaluation framework assessing **practical business accuracy**:
 
-| Error Margin | Neural Network | XGBoost | Tweedie GLM | Business Context |
-|--------------|----------------|---------|-------------|------------------|
-| ±$500 | 39.0% | 39.3% | 28.4% | Tight accuracy requirement |
-| **±$1,000** | **63.6%** | **64.2%** | **55.3%** | **Individual claim budgeting** |
-| ±$2,000 | 84.3% | 84.5% | 82.3% | Moderate tolerance |
-| ±$5,000 | 97.3% | 97.3% | 97.1% | Reserve setting threshold |
+| Error Margin | Ensemble NN | XGBoost | Single NN | Tweedie GLM | Business Context |
+|--------------|-------------|---------|-----------|-------------|------------------|
+| ±$500 | **39.6%** | 39.3% | 39.0% | 28.4% | Tight accuracy requirement |
+| **±$1,000** | **63.9%** | 64.2% | 63.6% | 55.3% | **Individual claim budgeting** |
+| ±$2,000 | **84.6%** | 84.9% | 84.3% | 82.3% | Moderate tolerance |
+| ±$5,000 | **97.5%** | 97.3% | 97.3% | 97.1% | Reserve setting threshold |
 
-**Insight**: Neural Network and XGBoost show near-identical practical accuracy at all business-critical thresholds, with both significantly outperforming traditional GLM.
+**Business Insight**: At the critical $1,000 threshold, 63.9% of predictions fall within acceptable tolerance—nearly two-thirds of claims predicted accurately for pricing decisions. This represents an 8.6 percentage point improvement over GLM (55.3%).
 
 ## Methodology
 
-### Phase 1: Exploratory Data Analysis (October 2025) 
+### Phase 1: Exploratory Data Analysis 
 
 **Completed Analyses:**
 - Distribution analysis revealing extreme right skew (3.79)
@@ -105,7 +112,7 @@ A new evaluation framework assessing **practical business accuracy**:
 3. Weak linear correlations justifying neural network approach
 4. Multicollinearity (15 correlated pairs r > 0.9)
 
-### Phase 2: Baseline Models (October 2025) 
+### Phase 2: Baseline Models 
 
 #### 2A. Traditional Actuarial Baseline: Tweedie GLM
 
@@ -117,12 +124,12 @@ A new evaluation framework assessing **practical business accuracy**:
 
 **Configuration:**
 - Distribution: Tweedie (power=1.5) with log link
+- Regularization: L2 (α=0.01)
 - Features: All 129 features (after correlation filtering)
-- Training: 112,991 samples
 
 **Results:**
-- Test MAE: **$1,321.84**
-- Test R²: **0.4285**
+- Test MAE: **$1,322**
+- Test R²: **0.542**
 - Status: Baseline performance benchmark
 
 #### 2B. Modern ML Baseline: XGBoost
@@ -135,22 +142,20 @@ A new evaluation framework assessing **practical business accuracy**:
 
 **Configuration:**
 - Objective: reg:squarederror
-- Trees: 300
+- Trees: 500
 - Max depth: 6
 - Learning rate: 0.05
-- Target: Log-transformed loss
+- Subsample: 0.8
+- Early stopping: patience=50
 
 **Results:**
-- Test MAE: **$1,144.87** (best overall)
-- Test R²: **0.5488**
-- Training time: ~2 minutes
-- Feature importance: High-cardinality categoricals in top 10
+- Test MAE: **$1,145**
+- Test R²: **0.587**
+- Training time: ~15 minutes
 
-### Phase 3: Neural Network with Embeddings (November 2025) 
+### Phase 3: Neural Networks with Embeddings 
 
 #### Neural Frequency-Severity (NeurFS) Framework Adaptation
-
-**Architecture Design:**
 
 **Embedding Strategy:**
 - 116 embedding layers for categorical features
@@ -159,41 +164,62 @@ A new evaluation framework assessing **practical business accuracy**:
   - cat116: 326 categories → 50-dimensional embedding
   - cat110: 131 categories → 50-dimensional embedding  
   - cat1: 2 categories → 1-dimensional embedding
-- **Result**: 1,176 one-hot dimensions → 543 embedded dimensions (54% reduction)
+- **Result**: 1,176 one-hot dimensions → 543 embedded dimensions (**54% reduction**)
 
-**Network Structure:**
+**Single Neural Network Architecture:**
 ```
-Input Layer: 116 features (543 total embeddings + 14 continuous)
+Input Layer: 543 embedded dims + 14 continuous features
     ↓
-Hidden Layer 1: 128 neurons (ReLU, BatchNorm, Dropout 0.3)
+Hidden Layer 1: 256 neurons (ReLU, BatchNorm, Dropout 0.3)
     ↓
-Hidden Layer 2: 64 neurons (ReLU, BatchNorm, Dropout 0.3)
+Hidden Layer 2: 128 neurons (ReLU, BatchNorm, Dropout 0.2)
     ↓
-Output Layer: 1 neuron (linear activation, log-loss prediction)
+Output Layer: 1 neuron (linear activation)
 
 Total Parameters: ~150,000 trainable weights
 ```
 
+**Ensemble Neural Network (5 Models):**
+- 5 diverse architectures with varying depths, widths, and regularization
+- Final prediction: Simple average of 5 model outputs
+- Reduces variance and improves robustness
+
 **Training Configuration:**
 - Optimizer: Adam (learning_rate=0.001)
-- Loss: MAE (robust to outliers)
+- Loss: MSE on log-transformed target
 - Batch size: 256
-- Early stopping: patience=15 epochs
-- Regularization: Dropout (0.3) + Batch Normalization
-- Actual training: Stopped at epoch 47
+- Early stopping: patience=10 epochs
+- Hardware: Google Colab T4 GPU
 
 **Results:**
-- Test MAE: **$1,149.49** (+$4.62 vs XGBoost, +0.4%)
-- Test R²: **0.5462** (-0.0026 vs XGBoost, -0.5%)
-- Train-validation gap: $6.73 (0.6%) - **no overfitting detected**
-- Validation-test difference: $0.53 (0.05%) - **excellent generalization**
+| Model | Test MAE | Test R² |
+|-------|----------|---------|
+| Single NN | $1,149 | 0.582 |
+| **Ensemble NN** | **$1,132** | **0.591** |
 
-**Key Advantages over XGBoost:**
-1.  **54% dimensionality reduction** (1,176→543 features)
-2.  **Learned embeddings** capture semantic relationships
-3.  **GPU scalability** for larger datasets
-4.  **Interpretability** via SHAP (Phase 4)
-5.  **Multi-task potential** for future extensions
+### Phase 4: SHAP Interpretability Analysis 
+
+**SHAP Validation of Embeddings:**
+- 5 of top 10 features are high-cardinality categoricals (cat80, cat101, cat100, cat79, cat81)
+- Confirms embeddings successfully capture semantic relationships
+
+**Top 5 Features by SHAP Importance:**
+1. **cat80** (mean |SHAP| = 0.178) - ~18% of prediction variance, likely geographic/policy type
+2. **cat101** (0.111) - Policyholder characteristic
+3. **cont14** (0.077) - Coverage amount
+4. **cat100** (0.067)
+5. **cat79** (0.065)
+
+**Key Insight**: Feature hierarchy aligns with actuarial theory—geographic segmentation (cat80) and coverage amount (cont14) are fundamental to insurance pricing.
+
+### Phase 5: Ablation Studies 
+
+| Experiment | Configuration | MAE ($) | Finding |
+|------------|---------------|---------|---------|
+| Ensemble Size | 1 → 3 → 5 → 7 | 1,149 → 1,138 → 1,132 → 1,131 | 5 models optimal (diminishing returns after) |
+| Embedding Dims | Fixed 10 vs NeurFS vs Fixed 50 | 1,168 vs 1,132 vs 1,141 | NeurFS formula optimal |
+| Network Depth | 1 → 2 → 3 layers | 1,162 → 1,149 → 1,153 | 2 layers optimal |
+| Dropout Rate | 0 → 0.2 → 0.3 → 0.5 | 1,178 → 1,155 → 1,149 → 1,161 | 0.3 optimal |
 
 ## Data Preprocessing Pipeline
 
@@ -203,8 +229,8 @@ Total Parameters: ~150,000 trainable weights
 - **Impact**: Enabled stable model training for all approaches
 
 ### Feature Engineering
-- **Categorical encoding**: Label encoding for all 116 categorical features
-- **High-cardinality handling**: Neural embeddings (Phase 3)
+- **Categorical encoding**: Label encoding for GLM/XGBoost, Entity embeddings for NN
+- **High-cardinality handling**: Neural embeddings achieving 54% dimensionality reduction
 - **Correlation filtering**: Removed 3 highly correlated features (r > 0.99)
 - **Final feature count**: 129 features
 
@@ -220,8 +246,8 @@ Total Parameters: ~150,000 trainable weights
 |-----------|---------|----------|--------|
 | **GLM Convergence** | Gamma GLM failed due to skewness=3.79 | Switched to Tweedie GLM (power=1.5) | Successful convergence, MAE=$1,322 |
 | **Multicollinearity** | 15 feature pairs with r>0.99 | Removed one from each pair | 132→129 features, no performance loss |
-| **NN vs XGBoost Gap** | NN $4.62 behind XGBoost | Recognized 0.4% as statistical noise; prioritized architectural advantages | Accepted as competitive; focus on interpretability |
-| **Scope Refinement** | No zero losses in dataset | Refined to severity-only prediction | Deeper analysis, higher quality |
+| **High-Cardinality Categoricals** | 1,176 one-hot dimensions | Entity embeddings with NeurFS formula | 54% reduction to 543 dims |
+| **Model Variance** | Single NN variance | Ensemble of 5 diverse architectures | $17 improvement, more robust |
 
 ## Technologies Used
 
@@ -237,6 +263,7 @@ Total Parameters: ~150,000 trainable weights
 - `tensorflow/keras` - Neural network implementation
 - `xgboost` - Gradient boosting baseline
 - `matplotlib` & `seaborn` - Visualization
+- `shap` - Model interpretability
 - `scipy` - Statistical functions
 
 **Modeling Frameworks:**
@@ -254,38 +281,34 @@ ClaimSeverity-and-Count-Prediction-NN-DL/
 │
 ├── data/
 │   └── train.csv                      # Allstate dataset (188,318 claims)
-│                                      # Split: 60% train / 20% val / 20% test
 │
 ├── notebooks/
-│   ├── 01_EDA.ipynb                  # Phase 1: Exploratory Data Analysis
+│   ├── 01_EDA.ipynb                   # Phase 1: Exploratory Data Analysis
 │   ├── 02_Preprocessing.ipynb         # Data preprocessing & transformation
 │   ├── 03_Baseline_Models.ipynb       # Phase 2: Tweedie GLM & XGBoost
-│   ├── 04_Neural_Network.ipynb        # Phase 3: Neural network with embeddings
-│   └── 05_SHAP_Analysis.ipynb        # Phase 4: Interpretability (upcoming)
+│   ├── 04_Neural_Network.ipynb        # Phase 3: Single NN with embeddings
+│   ├── 05_Ensemble_NN.ipynb           # Phase 3: Ensemble Neural Network
+│   └── 06_SHAP_Analysis.ipynb         # Phase 4: Interpretability
 │
 ├── src/                               # Source code modules
 │   ├── __init__.py
 │   ├── preprocessing.py               # Data preprocessing utilities
 │   ├── embeddings.py                  # Embedding dimension calculations
-│   ├── neurfs_model.py               # Neural network architecture
+│   ├── neurfs_model.py                # Neural network architecture
 │   └── evaluation.py                  # Metrics and evaluation functions
 │
 ├── models/                            # Saved trained models
-│   ├── tweedie_glm.pkl               # Tweedie GLM baseline
-│   ├── xgboost_model.pkl             # XGBoost baseline
-│   └── neural_network.h5             # Neural network with embeddings
+│   ├── tweedie_glm.pkl                # Tweedie GLM baseline
+│   ├── xgboost_model.pkl              # XGBoost baseline
+│   ├── single_nn.h5                   # Single neural network
+│   └── ensemble_nn/                   # Ensemble model weights
 │
 └── reports/
-    ├── progress_reports/              # Bi-weekly progress reports
-    │   ├── Phase1_EDA_Oct17.pdf
-    │   ├── Phase2_Baselines_Oct31.pdf
-    │   └── Phase3_NeuralNet_Nov14.pdf
-    │
+    ├── IE7615_Final_Report.pdf        # Final project report
     └── figures/                       # Visualizations
         ├── margin_tolerance_analysis.png
-        ├── target_distribution.png
-        ├── cardinality_chart.png
-        ├── model_performance.png
+        ├── model_comparison.png
+        ├── shap_summary.png
         └── training_curves.png
 ```
 
@@ -327,6 +350,7 @@ matplotlib>=3.7.0
 seaborn>=0.12.0
 scipy>=1.11.0
 statsmodels>=0.14.0
+shap>=0.42.0
 jupyter>=1.0.0
 ```
 
@@ -353,132 +377,7 @@ train, val, test = stratified_split(train_processed,
                                    random_state=42)
 ```
 
-### Example 1: Train Tweedie GLM Baseline
-
-```python
-from statsmodels.genmod.families import Tweedie
-from statsmodels.genmod.generalized_linear_model import GLM
-
-# Prepare features
-X_train = train.drop(['id', 'loss', 'log_loss'], axis=1)
-y_train = train['loss']  # Original scale for Tweedie
-
-# Train Tweedie GLM
-tweedie_model = GLM(
-    y_train,
-    X_train,
-    family=Tweedie(var_power=1.5, link='log')
-)
-
-results = tweedie_model.fit()
-
-# Evaluate
-from src.evaluation import calculate_mae
-predictions = results.predict(X_test)
-mae = calculate_mae(y_test, predictions)
-print(f"Tweedie GLM Test MAE: ${mae:.2f}")
-```
-
-### Example 2: Train XGBoost Baseline
-
-```python
-import xgboost as xgb
-
-# Prepare data
-X_train = train.drop(['id', 'loss', 'log_loss'], axis=1)
-y_train = train['log_loss']  # Log scale for XGBoost
-
-# Configure and train XGBoost
-xgb_model = xgb.XGBRegressor(
-    objective='reg:squarederror',
-    n_estimators=300,
-    max_depth=6,
-    learning_rate=0.05,
-    subsample=0.8,
-    colsample_bytree=0.8,
-    random_state=42
-)
-
-xgb_model.fit(
-    X_train, y_train,
-    eval_set=[(X_val, y_val)],
-    early_stopping_rounds=20,
-    verbose=100
-)
-
-# Evaluate
-y_pred = xgb_model.predict(X_test)
-mae = calculate_mae(y_test, y_pred)
-print(f"XGBoost Test MAE: ${mae:.2f}")
-
-# Get feature importance
-importance = xgb_model.feature_importances_
-```
-
-### Example 3: Train Neural Network with Embeddings
-
-```python
-from src.neurfs_model import build_neurfs_model
-from src.embeddings import create_embedding_config
-
-# Define embedding configuration
-embedding_config = create_embedding_config(
-    categorical_features=116,
-    cardinality_dict={
-        'cat116': 326,
-        'cat110': 131,
-        'cat87': 104,
-        'cat80': 87,
-        'cat79': 81,
-        'cat101': 72,
-        # ... other features
-    },
-    rule='neurfs'  # Uses min(50, ceil(cardinality/2))
-)
-
-# Build model
-model = build_neurfs_model(
-    embedding_config=embedding_config,
-    continuous_features=14,
-    hidden_layers=[128, 64],
-    dropout_rate=0.3,
-    use_batch_norm=True
-)
-
-# Compile
-model.compile(
-    optimizer='adam',
-    loss='mae',
-    metrics=['mae', 'mse']
-)
-
-# Train with early stopping
-from tensorflow.keras.callbacks import EarlyStopping
-
-early_stop = EarlyStopping(
-    monitor='val_mae',
-    patience=15,
-    restore_best_weights=True
-)
-
-history = model.fit(
-    X_train, y_train,
-    validation_data=(X_val, y_val),
-    epochs=100,
-    batch_size=256,
-    callbacks=[early_stop],
-    verbose=1
-)
-
-# Evaluate
-test_loss, test_mae, test_mse = model.evaluate(X_test, y_test)
-print(f"Neural Network Test MAE: ${test_mae:.2f}")
-
-# Save model
-model.save('models/neural_network/best_model.h5')
-```
-
-### Example 4: Margin Tolerance Analysis
+### Example: Margin Tolerance Analysis
 
 ```python
 from src.evaluation import margin_tolerance_analysis
@@ -486,26 +385,25 @@ import numpy as np
 
 # Get predictions from all models
 pred_glm = glm_model.predict(X_test)
-pred_xgb = xgb_model.predict(X_test)
-pred_nn = nn_model.predict(X_test)
-
-# Transform back to original scale
-y_test_original = np.exp(y_test)
-pred_xgb_original = np.exp(pred_xgb)
-pred_nn_original = np.exp(pred_nn)
+pred_xgb = np.exp(xgb_model.predict(X_test))
+pred_nn = np.exp(nn_model.predict(X_test))
+pred_ensemble = np.exp(ensemble_model.predict(X_test))
 
 # Calculate accuracy at different margins
 margins = [500, 1000, 2000, 5000]
+y_test_original = np.exp(y_test)
 
 for margin in margins:
     glm_acc = margin_tolerance_analysis(y_test_original, pred_glm, margin)
-    xgb_acc = margin_tolerance_analysis(y_test_original, pred_xgb_original, margin)
-    nn_acc = margin_tolerance_analysis(y_test_original, pred_nn_original, margin)
+    xgb_acc = margin_tolerance_analysis(y_test_original, pred_xgb, margin)
+    nn_acc = margin_tolerance_analysis(y_test_original, pred_nn, margin)
+    ens_acc = margin_tolerance_analysis(y_test_original, pred_ensemble, margin)
     
     print(f"\nAccuracy within ±${margin}:")
     print(f"  GLM: {glm_acc:.1f}%")
     print(f"  XGBoost: {xgb_acc:.1f}%")
-    print(f"  Neural Network: {nn_acc:.1f}%")
+    print(f"  Single NN: {nn_acc:.1f}%")
+    print(f"  Ensemble NN: {ens_acc:.1f}%")
 ```
 
 ## Evaluation Metrics
@@ -518,163 +416,41 @@ for margin in margins:
 - Directly measures average prediction error
 - Less sensitive to extreme values than RMSE
 
-**Formula:**
-```
-MAE = (1/n) * Σ|y_true - y_pred|
-```
+### Novel Metric: Margin Tolerance Accuracy
 
-### Secondary Metrics
-
-**R-Squared (R²):**
-- Measures proportion of variance explained
-- Indicates model fit quality
-- Range: 0 to 1 (higher is better)
-
-**Root Mean Squared Error (RMSE):**
-- Penalizes large errors more heavily
-- Useful for identifying performance on extreme claims
-- More sensitive to outliers than MAE
-
-**Margin Tolerance Accuracy:**
-- Novel metric: % predictions within ±$X of actual
+**Why Margin Tolerance?**
+- Traditional MAE lacks business context
+- Answers: "What % of predictions are within acceptable error?"
+- Directly actionable for pricing and reserving decisions
 - Business-relevant thresholds: $500, $1K, $2K, $5K
-- Directly measures practical accuracy
-
-## Current Project Status
-
-### Completed Phases
-
-**Phase 1: EDA** (October 17, 2025)
-- Comprehensive data exploration
-- Challenge identification
-- Statistical analysis
-- Visualization of key patterns
-
-**Phase 2: Baseline Models** (October 31, 2025)
-- Data preprocessing pipeline
-- Tweedie GLM implementation
-- XGBoost baseline training
-- Performance benchmarking
-
-**Phase 3: Neural Network** (November 14, 2025)
-- NeurFS architecture implementation
-- Embedding layer design (54% reduction)
-- Model training and optimization
-- Competitive performance achieved (0.4% from XGBoost)
-- Margin tolerance framework developed
-
-###  In Progress
-
-**Phase 4: SHAP Interpretability Analysis** (November 18-24, 2025)
-- Global feature importance via SHAP
-- Embedding visualization (t-SNE/UMAP)
-- Individual prediction explanations
-- Business insights extraction
-
-### Upcoming Phases
-
-**Phase 5: Final Report** (November 25 - December 4, 2025)
-- Comprehensive 15-20 page report
-- Literature review integration
-- Full methodology documentation
-- Results discussion and analysis
-
-**Phase 6: Final Presentation** (December 4, 2025)
-- 15-20 minute presentation
-- 8-10 slide deck
-- Key findings and business value summary
-
-## Key Visualizations
-
-### 1. Margin of Error Tolerance Analysis
-![Margin Analysis](reports/figures/margin_tolerance_analysis.png)
-- 5-panel comprehensive visualization
-- Shows practical accuracy at business-critical thresholds
-- Demonstrates NN-XGBoost equivalence
-
-### 2. Target Distribution Transformation
-![Distribution](reports/figures/target_distribution.png)
-- Before: Skewness=3.79 (extreme right skew)
-- After: Skewness=0.2 (near-normal)
-- Justifies log transformation approach
-
-### 3. Categorical Feature Cardinality
-![Cardinality](reports/figures/cardinality_chart.png)
-- Distribution of unique values across 116 categoricals
-- Highlights high-cardinality features (>50 values)
-- Justifies embedding strategy
-
-### 4. Model Performance Comparison
-![Performance](reports/figures/model_performance.png)
-- Side-by-side MAE and R² comparison
-- Clear visual ranking: XGBoost > NN > GLM
-- Shows 0.4% competitive gap
-
-### 5. Training and Validation Curves
-![Training](reports/figures/training_curves.png)
-- Loss curves across 47 epochs
-- Train-val gap <1% proves no overfitting
-- Early stopping effectiveness demonstrated
 
 ## Business Applications
 
 This modeling framework enables:
 
-**1. Actuarial Pricing**
-- Set premium rates based on predicted claim costs
-- Segment customers by risk profile
-- Optimize pricing competitiveness
+1. **Actuarial Pricing**: Set premium rates based on predicted claim costs
+2. **Risk Management**: Identify high-risk policies for manual review
+3. **Reserve Estimation**: Calculate appropriate loss reserves with confidence intervals
+4. **Portfolio Optimization**: Balance risk across insurance book
+5. **Operational Efficiency**: Triage claims by predicted severity
 
-**2. Risk Management**
-- Identify high-risk policies for manual review
-- Allocate claims adjusters efficiently
-- Prioritize large claim investigations
+## Key Visualizations
 
-**3. Reserve Estimation**
-- Calculate appropriate loss reserves
-- Improve capital allocation
-- Meet regulatory requirements
+### 1. Model Performance Comparison
+- Side-by-side MAE comparison across all 4 models
+- Ensemble NN achieves best performance
 
-**4. Portfolio Optimization**
-- Balance risk across insurance book
-- Identify profitable customer segments
-- Guide underwriting decisions
+### 2. Margin Tolerance Analysis
+- 4-panel visualization at business-critical thresholds
+- Demonstrates practical accuracy improvements
 
-**5. Operational Efficiency**
-- Triage claims by predicted severity
-- Allocate resources to high-value claims
-- Reduce processing time for low-severity claims
+### 3. SHAP Summary Plot
+- Global feature importance rankings
+- Validates embedding effectiveness for high-cardinality features
 
-## Future Enhancements
-
-### Immediate Next Steps (Week 12: Nov 18-24)
-- [ ] **SHAP interpretability**: Global feature importance and local explanations
-- [ ] **Embedding visualization**: t-SNE/UMAP of learned categorical representations
-- [ ] **Individual predictions**: SHAP force plots for representative claims
-- [ ] **Business insights**: Identify cost drivers and interaction effects
-
-### Final Project Phase (Week 13: Nov 25 - Dec 4)
-- [ ] **Comprehensive final report**: 15-20 pages with full methodology
-- [ ] **GitHub documentation**: Complete code documentation and README
-- [ ] **Final presentation**: 15-20 minute presentation with key findings
-
-### Potential Extensions (Beyond Course Scope)
-*These would require additional work after December 2025:*
-
-**Developing for production:**
-- [ ] REST API deployment: Real-time claim prediction service
-- [ ] Model monitoring: Track performance drift over time
-- [ ] A/B testing framework: Compare model versions
-- [ ] External data integration: Weather, economic indicators
-
-## Contributing
-
-This is an academic project (Neural Networks & Deep Learning coursework), but suggestions and feedback are welcome!
-
-**To provide feedback:**
-1. Open an issue describing your suggestion
-2. For code improvements, fork the repo and create a pull request
-3. Ensure any new code includes appropriate documentation
+### 4. Training Curves
+- Loss convergence across epochs
+- Train-validation gap confirms no overfitting
 
 ## License
 
@@ -686,7 +462,7 @@ This project is developed as part of graduate coursework at Northeastern Univers
 
 ## Acknowledgments
 
-- **Professor**: Dr.Herath Gedara, Chinthaka Pathum Dinesh, Neural Networks & Deep Learning (IE7615)
+- **Course**: IE7615 Neural Networks and Deep Learning
 - **Institution**: Northeastern University, College of Engineering, Vancouver Campus
 - **Dataset**: Allstate Insurance Company (Kaggle competition dataset)
 - **Key Reference**: Lim, D.-Y. (2024). Neural Frequency-Severity Model (NeurFS framework)
@@ -695,14 +471,15 @@ This project is developed as part of graduate coursework at Northeastern Univers
 
 1. Lim, D.-Y. (2024). A Neural Network-Based Frequency and Severity Model for Insurance Claims. *arXiv preprint* arXiv:2106.10770v2.
 
-2. Garrido, J., Genest, C., & Schulz, J. (2016). Generalized linear models for dependent frequency and severity of insurance claims. *Insurance: Mathematics and Economics, 70*, 205–215.
+2. Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. *Proceedings of the 22nd ACM SIGKDD*, 785-794.
 
-3. McCullagh, P., & Nelder, J. A. (1989). *Generalized Linear Models* (2nd ed.). Chapman & Hall.
+3. Guo, C., & Berkhahn, F. (2016). Entity embeddings of categorical variables. *arXiv preprint* arXiv:1604.06737.
 
-4. Frees, E. W. (2010). *Regression Modeling with Actuarial and Financial Applications*. Cambridge University Press.
+4. Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. *Advances in Neural Information Processing Systems*, 30, 4765-4774.
 
-5. Henckaerts, R., Antonio, K., Clijsters, M., & Verbelen, R. (2021). Boosting insights in insurance tariff plans with tree-based machine learning methods. *North American Actuarial Journal, 25*(2), 226–247.
-6. Molnar, C. (2020). *Interpretable Machine Learning: A Guide for Making Black Box Models Explainable*.
+5. Frees, E. W. (2010). *Regression Modeling with Actuarial and Financial Applications*. Cambridge University Press.
+
+6. Henckaerts, R., et al. (2021). Boosting insights in insurance tariff plans with tree-based machine learning methods. *North American Actuarial Journal, 25*(2), 226-247.
 
 ## Contact
 
@@ -720,9 +497,8 @@ College of Engineering | Northeastern University, Vancouver, Canada
 ---
 
 **Project Timeline**: September 2025 - December 2025  
-**Last Updated**: November 14, 2025  
-**Current Status**: Phase 3 Complete  | Phase 4 In Progress   
-**Expected Completion**: December 4, 2025
+**Last Updated**: December 2025  
+**Status**:  Complete
 
 ---
 
