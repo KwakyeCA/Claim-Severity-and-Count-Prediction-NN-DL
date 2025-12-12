@@ -473,17 +473,24 @@ This project is developed as part of graduate coursework at Northeastern Univers
 
 ## References
 
-1. Lim, D.-Y. (2024). A Neural Network-Based Frequency and Severity Model for Insurance Claims. *arXiv preprint* arXiv:2106.10770v2.
+Lim, D. Y. (2024). A neural frequency-severity model and its application to insurance claims. arXiv preprint arXiv:2106.10770.
 
-2. Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. *Proceedings of the 22nd ACM SIGKDD*, 785-794.
+Henckaerts, R., Côté, M. P., Antonio, K., & Verbelen, R. (2021). Boosting insights in insurance tariff plans with tree-based machine learning methods. North American Actuarial Journal, 25(2), 255-285.
 
-3. Guo, C., & Berkhahn, F. (2016). Entity embeddings of categorical variables. *arXiv preprint* arXiv:1604.06737.
+Guo, C., & Berkhahn, F. (2016). Entity embeddings of categorical variables. arXiv preprint arXiv:1604.06737.
 
-4. Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. *Advances in Neural Information Processing Systems*, 30, 4765-4774.
+Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785-794.
 
-5. Frees, E. W. (2010). *Regression Modeling with Actuarial and Financial Applications*. Cambridge University Press.
+Frees, E. W. (2010). Regression modeling with actuarial and financial applications. 
 
-6. Henckaerts, R., et al. (2021). Boosting insights in insurance tariff plans with tree-based machine learning methods. *North American Actuarial Journal, 25*(2), 226-247.
+Jørgensen, B., & Paes De Souza, M. C. (1994). Fitting Tweedie's compound Poisson model to insurance claims data. Scandinavian Actuarial Journal, 1994(1), 69-93.
+
+Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. Advances in Neural Information Processing Systems, 30, 4765-4774.
+
+Pesantez-Narvaez, J., Guillen, M., & Alcañiz, M. (2019). Predicting motor insurance claims using telematics data—XGBoost versus logistic regression. Risks, 7(2), 70.
+
+Shwartz-Ziv, R., & Armon, A. (2022). Tabular data: Deep learning is not all you need. Information Fusion, 81, 84-90.
+
 
 ## Contact
 
